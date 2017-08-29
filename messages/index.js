@@ -40,6 +40,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send('A noiva gosta de talheres de prata');
 }).onDefault((session) => {
     session.send('Foi mal não entendi o que você quer com isso ... \'%s\'.', session.message.text);
+    session.send(JSON.stringify(args));
 });
 
 bot.dialog('/', intents);    
