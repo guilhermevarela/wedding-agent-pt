@@ -36,13 +36,12 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('Saudar', (session, args) => {
     session.send('oi tudo bem? estou aqui para ajudar você escolher um presentinho para a ju');
-    session.send(JSON.stringify(args));
-}).matches('ConhecerCategoriaDePresentes', (session, args) => {
+}).matches('ConhecerOGostoDaNoiva', (session, args) => {
     session.send('A noiva gosta de talheres de prata');
-    session.send(JSON.stringify(args));
+}).matches('ConhecerCategoriaDePresentes', (session, args) => {
+    session.send('Os noivos escolheram eletrodomésticos, um passeio de barco e objetos de decoração');
 }).onDefault((session, args) => {
     session.send('Foi mal não entendi o que você quer com isso ... \'%s\'.', session.message.text);
-    session.send(JSON.stringify(args));
 });
 
 bot.dialog('/', intents);    
